@@ -6,6 +6,9 @@ BITRATE="$(bashio::config 'bitrate')"
 
 echo "Config: DEVICE=$DEVICE BITRATE=$BITRATE"
 
+# Print driver info
+dmesg | grep -i '\(can\|spi\)'
+
 # Print current status
 ip link show "$DEVICE"
 
