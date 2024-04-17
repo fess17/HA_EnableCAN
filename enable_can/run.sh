@@ -22,3 +22,7 @@ ip link set "$DEVICE" up
 
 # Print current status
 ip link show "$DEVICE"
+
+# Print all links
+echo "ip -s -c -h a:"
+ip -s -c -h a
