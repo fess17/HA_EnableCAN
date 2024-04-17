@@ -18,11 +18,12 @@ if [ "$(cat "/sys/class/net/$DEVICE/operstate")" == "up" ]; then
 fi
 
 ip link set "$DEVICE" up type can bitrate "$BITRATE"
+ip link set txqueuelen 10000 dev "$DEVICE"
 ip link set "$DEVICE" up
 
 # Print current status
 ip link show "$DEVICE"
 
 # Print all links
-echo "ip -s -c -h a:"
-ip -s -c -h a
+echo "ip -c -h a:"
+ip -c -h a
